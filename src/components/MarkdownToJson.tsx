@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import MDEditor from '@uiw/react-md-editor'
+import axios from 'axios'
 
 function escapeMarkdown(markdown: string): string {
   return markdown
@@ -23,6 +24,9 @@ function MarkdownToJson() {
         rows={10}
         className="w-full border p-2 font-mono bg-gray-100"
       />
+      <button onClick={() => axios.post('/posts', { markdownContent: escaped })}>
+        저장하기
+      </button>
     </div>
   )
 }
