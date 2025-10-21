@@ -1,4 +1,4 @@
-import axios from "axios"
+import axios from "../lib/axios"
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 
@@ -26,7 +26,7 @@ export default function PostList() {
             <h2 className="text-xl font-bold mb-4">📚 블로그 글 목록</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {posts.map(post => (
-                    <Link to={`/posts/${post.slug}`} key={post.id} className="border rounded shadow hover:shadow-md transition">
+                    <Link to={`/posts/slug/${post.slug}`} key={post.id} className="border rounded shadow hover:shadow-md transition">
                         <img src={post.imageUrl} alt={post.title} className="w-full h-48 object-cover rounded-t" />
                         <div className="p-4">
                             <h3 className="text-lg font-semibold">{post.title}</h3>
@@ -37,6 +37,5 @@ export default function PostList() {
                 ))}
             </div>
         </div>
-
     )
 }
