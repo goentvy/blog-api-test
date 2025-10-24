@@ -1,14 +1,6 @@
 import { Link } from "react-router-dom"
 import { resolveImageUrl } from "../lib/image"
-
-interface Post {
-  title: string
-  slug: string
-  author: string
-  category: string
-  imageUrl: string
-  createdAt: string
-}
+import type { Post } from '../types/post'
 
 const PostCard = ({ title, slug, author, category, imageUrl, createdAt}: Post) => {
     return (

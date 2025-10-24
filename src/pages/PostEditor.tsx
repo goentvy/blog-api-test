@@ -6,7 +6,6 @@ import MDEditor from "@uiw/react-md-editor";
 export default function PostEditor() {
     const { slugparam } = useParams()
     const navigate = useNavigate()
-    console.log(slugparam)
 
     const [title, setTitle] = useState('')
     const [slug, setSlug] = useState('')
@@ -21,7 +20,7 @@ export default function PostEditor() {
             axios.get(`/posts/slug/${slugparam}`)
                 .then(res => {
                     const post = res.data
-                    console.log(post)
+
                     setTitle(post.title)
                     setSlug(post.slug)
                     setCategory(post.category)
