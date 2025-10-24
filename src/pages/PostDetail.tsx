@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
 import axios from '../lib/axios'
 import MarkdownViewer from "../components/MarkdownViewer"
-import { resolveImageUrl } from '../lib/image'
+// import { resolveImageUrl } from '../lib/image'
 import type { PostMarkDown } from "../types/post"
 
 export default function PostDetail() {
