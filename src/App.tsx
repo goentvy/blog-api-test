@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter as Router, Routes, Route } from 'react-router-dom'
 import PostDetail from './pages/PostDetail'
 import PostList from './pages/PostList'
 import PostEditor from './pages/PostEditor'
@@ -10,7 +10,7 @@ function App() {
   const { isAuthenticated } = useAuth()
 
   return (
-    <BrowserRouter>
+    <Router>
       <main className="container mx-auto max-w-screen-xl px-4 py-6">
         <Routes>
           {/* 메인화면 */}
@@ -27,7 +27,7 @@ function App() {
           <Route path="/editor/:slugparam" element={<PostEditor />} />
         </Routes>
       </main>
-    </BrowserRouter>
+    </Router>
   )
 }
 
