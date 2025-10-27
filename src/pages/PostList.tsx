@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { resolveImageUrl } from "../lib/image"
 import type { Post } from '../types/post'
+import Thumbnail from "../components/Thumbnail"
 
 export default function PostList() {
   const [posts, setPosts] = useState<Post[]>([])
@@ -66,11 +67,7 @@ export default function PostList() {
                 </td>
                 <td className="px-4 py-3">
                   {post.imageUrl ? (
-                    <img
-                      src={resolveImageUrl(post.imageUrl)}
-                      alt="썸네일"
-                      className="w-16 h-16 object-cover rounded shadow"
-                    />
+                    <Thumbnail imageUrl={resolveImageUrl(post.imageUrl)} />
                   ) : (
                     <span className="text-gray-400">없음</span>
                   )}
