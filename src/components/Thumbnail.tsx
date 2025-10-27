@@ -3,11 +3,13 @@ import { useState } from 'react';
 const Thumbnail = ({ imageUrl }: { imageUrl: string }) => {
     const [error, setError] = useState(false)
 
-    const fallbackSrc = '/assets/thumbnails/default.png'
+    const basePath = import.meta.env.DEV ? '' : '/blog-api-test'
+    const fallbackSrc = `${basePath}/assets/thumbnails/default.png`
+    const validSrc = imageUrl && !error ? imageUrl : fallbackSrc
 
     return (
         <img
-            src={error ? fallbackSrc : imageUrl}
+            src={validSrc}
             alt="썸네일"
             loading="lazy"
             onError={() => setError(true)}
